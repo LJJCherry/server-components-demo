@@ -11,7 +11,7 @@
 const fs = require('fs');
 const path = require('path');
 const {readdir, unlink, writeFile} = require('fs/promises');
-const {db} = require('../src/db.server');
+const {db} = require('../server/db.server');
 
 const NOTES_PATH = './notes';
 

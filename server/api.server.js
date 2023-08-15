@@ -32,7 +32,7 @@ const {
   insertNote,
   editNote,
   deleteNote,
-} = require('../src/db.server');
+} = require('./db.server');
 
 const PORT = 4000;
 const app = express();

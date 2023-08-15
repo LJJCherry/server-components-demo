@@ -1,79 +1,33 @@
 # React Server Components Demo 
 
-> This is a fork of the original demo without the Postgres dependency
 
-* [What is this?](#what-is-this)
-* [When will I be able to use this?](#when-will-i-be-able-to-use-this)
-* [Setup](#setup)
-* [DB Setup](#db-setup)
-  + [Step 1. Create the Database](#step-1-create-the-database)
-  + [Step 2. Connect to the Database](#step-2-connect-to-the-database)
-  + [Step 3. Run the seed script](#step-3-run-the-seed-script)
-* [Notes about this app](#notes-about-this-app)
-  + [Interesting things to try](#interesting-things-to-try)
-* [Built by (A-Z)](#built-by-a-z)
-* [Code of Conduct](#code-of-conduct)
-* [License](#license)
-
-## What is this?
-
-This is a demo app built with Server Components, an experimental React feature. **We strongly recommend [watching our talk introducing Server Components](https://reactjs.org/server-components) before exploring this demo.** The talk includes a walkthrough of the demo code and highlights key points of how Server Components work and what features they provide.
-
-## When will I be able to use this?
-
-Server Components are an experimental feature and **are not ready for adoption**. For now, we recommend experimenting w Server Components via this demo app. **Use this in your own projects at your own risk.**
-
-## Setup
+## 本地启动
 
   ```
   npm install
   npm start
   ```
 
-(Or `npm run start:prod` for a production build.)
+打开 http://localhost:4000.
 
-Then open http://localhost:4000.
-
-The app won't work until you set up the database, as described below.
-
-## DB Setup
-
-There is no database in this fork.
-
-I replaced it with an object in `./src/db.server.js`.
 
 ## Notes about this app
 
-The demo is a note taking app called **React Notes**. It consists of a few major parts:
+这个演示应用程序是一个名为React Notes的便条应用程序。它由几个主要部分组成：
 
-- It uses a Webpack plugin (not defined in this repo) that allows us to only include client components in build artifacts
-- An Express server that:
-  - Serves API endpoints used in the app
-  - Renders Server Components into a special format that we can read on the client
-- A React app containing Server and Client components used to build React Notes
+- 它使用了一个Webpack插件（未在此存储库中定义），该插件允许我们只在构建构件中包含客户端组件
+- 一个Express服务器，它：
+  - 提供应用程序中使用的API请求
+  - 将Server Components渲染成我们可以在客户端上读取的特殊格式
+- 一个React应用程序，其中包含用于构建React Notes的Server和Client组件
 
-This demo is built on top of our Webpack plugin, but this is not how we envision using Server Components when they are stable. They are intended to be used in a framework that supports server rendering — for example, in Next.js. This is an early demo -- the real integration will be developed in the coming months. Learn more in the [announcement post](https://reactjs.org/server-components).
+这个演示是建立在我们的Webpack插件之上的，但这不是我们在稳定后使用Server Components的设想方式。它们旨在用于支持服务器渲染的框架，例如Next.js。这只是一个早期的演示 - 真正的集成将在接下来的几个月中开发。在[公告文章](https://reactjs.org/server-components)中了解更多信息。
 
-### Interesting things to try
+### 有趣的尝试
 
-- Expand note(s) by hovering over the note in the sidebar, and clicking the expand/collapse toggle. Next create or delete a note. What happens to the expanded notes?
-- Change a note's title while editing, and notice how editing an existing item animates in the sidebar. What happens if you edit a note in the middle of the list?
-- Search for any title. With the search text still in the search input, create a new note with a title matching the search text. What happens?
-- Search while on Slow 3G, observe the inline loading indicator.
-- Switch between two notes back and forth. Observe we don't send new responses next time we switch them again.
-- Uncomment the `fetch('http://localhost:4000/sleep/....')` calls in `NoteServer.js` and/or `NoteList.server.js` to introduce an artificial delay and trigger Suspense.
-
-## Built by (A-Z)
-
-- [Andrew Clark](https://twitter.com/acdlite)
-- [Dan Abramov](https://twitter.com/dan_abramov)
-- [Joe Savona](https://twitter.com/en_JS)
-- [Lauren Tan](https://twitter.com/sugarpirate_)
-- [Sebastian Markbåge](https://twitter.com/sebmarkbage)
-- [Tate Strickland](http://www.tatestrickland.com/) (Design)
-
-## [Code of Conduct](https://engineering.fb.com/codeofconduct/)
-Facebook has adopted a Code of Conduct that we expect project participants to adhere to. Please read the [full text](https://engineering.fb.com/codeofconduct/) so that you can understand what actions will and will not be tolerated.
-
-## License
-This demo is MIT licensed.
+- 在侧边栏中将鼠标悬停在便条上并单击展开/折叠切换，尝试展开便条。然后创建或删除一个便条。展开的便条会发生什么变化？
+- 在编辑时更改一个便条的标题，并观察侧边栏中对现有项目的编辑动画效果。如果您编辑列表中间的一个便条会发生什么?
+- 搜索任何标题。在搜索输入框中仍然有搜索文本的情况下，创建一个标题与搜索文本匹配的新便条。会发生什么?
+- 在慢速3G网络环境下进行搜索，观察内嵌的加载指示器.
+- 在两个便条之间来回切换。观察下次再切换它们时我们不会发送新的请求.
+- 取消NoteServer.js和/或NoteList.server.js中的fetch('http://localhost:4000/sleep/....')调用的注释，引入人为延迟，触发Suspense效果.

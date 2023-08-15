@@ -6,9 +6,7 @@
  *
  */
 
-import {fetch} from 'react-fetch';
-
-import {searchNotes} from './db.server';
+import {searchNotes} from '../server/db.server';
 import SidebarNote from './SidebarNote';
 
 export default function NoteList({searchText}) {
